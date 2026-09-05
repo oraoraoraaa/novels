@@ -1,0 +1,8 @@
+# LaTeX build output
+/book-*/build/
+
+# Common editor and operating-system files
+.DS_Store
+*.swp
+*.swo
+*~

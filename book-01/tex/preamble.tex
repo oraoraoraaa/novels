@@ -1,0 +1,20 @@
+\usepackage[a5paper,top=22mm,bottom=24mm,inner=22mm,outer=18mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+
+\hypersetup{
+  unicode=true,
+  hidelinks,
+  pdftitle={\BookTitle{} \BookVolume},
+  pdfauthor={\BookAuthor}
+}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\linespread{1.25}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\small\BookTitle}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
