@@ -13,6 +13,13 @@
 \setlength{\parskip}{0pt}
 \linespread{1.25}
 
+% 场景之间留出停顿，不另行编号为章节。
+\newcommand{\SceneBreak}{%
+  \par\bigskip
+  \noindent\makebox[\linewidth][c]{\small *\quad *\quad *}%
+  \par\bigskip
+}
+
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[R]{\small\BookTitle}
