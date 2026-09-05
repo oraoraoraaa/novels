@@ -1,4 +1,10 @@
-\documentclass[UTF8,openany,oneside]{ctexbook}
+\expandafter\def\csname ltj@stdmcfont\endcsname{file:ipaexm.ttf}
+\expandafter\def\csname ltj@stdgtfont\endcsname{file:ipaexg.ttf}
+\ifdefined\BookChineseLayout
+	\documentclass[10pt,openright,twoside]{ltjbook}
+\else
+	\documentclass[10pt,openright,twoside,tate]{ltjbook}
+\fi
 
 \input{tex/metadata}
 \input{tex/preamble}

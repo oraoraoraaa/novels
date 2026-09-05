@@ -1,4 +1,25 @@
-\usepackage[a5paper,top=22mm,bottom=24mm,inner=22mm,outer=18mm]{geometry}
+\ifdefined\BookChineseLayout
+  \usepackage[
+    paperwidth=145mm,
+    paperheight=210mm,
+    top=18mm,
+    bottom=20mm,
+    inner=20mm,
+    outer=16mm
+  ]{geometry}
+\else
+  \usepackage[
+    paperwidth=105mm,
+    paperheight=148mm,
+    top=14mm,
+    bottom=15mm,
+    inner=16mm,
+    outer=12mm
+  ]{geometry}
+\fi
+\usepackage{luatexja-fontspec}
+\setmainjfont{Songti SC}
+\AtBeginDocument{\fontsize{9pt}{12.5pt}\selectfont}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 
@@ -11,7 +32,13 @@
 
 \setlength{\parindent}{2em}
 \setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{1em}
 \linespread{1.25}
+
+\ltjsetparameter{
+  kanjiskip=0.3pt,
+  xkanjiskip=0.15em
+}
 
 % 场景之间留出停顿，不另行编号为章节。
 \newcommand{\SceneBreak}{%

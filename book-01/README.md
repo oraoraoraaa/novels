@@ -28,11 +28,24 @@
 
 ## 编译
 
-推荐安装包含 XeLaTeX、`ctex` 和 `latexmk` 的 TeX Live，然后在本目录执行：
+推荐安装包含 LuaLaTeX、LuaTeX-ja、IPAex 字体和 `latexmk` 的 TeX Live，然后在本目录执行。
+
+默认编译为日式小说版：A6（105 × 148 mm）、竖排、右向左翻页。
 
 ```sh
-latexmk -xelatex main.tex
+latexmk -lualatex main.tex
 ```
+
+编译为中文书籍版：32 开（145 × 210 mm）、横排、左向右阅读：
+
+```sh
+lualatex -output-directory=build -jobname=main-32k '\def\BookChineseLayout{}\input{main.tex}'
+```
+
+需要目录更新时，将上面的命令再运行一次。两种版式共享同一份正文文件。
+
+当前纵排字体使用 macOS 自带的 `Songti SC`；在其他平台编译时，需要将
+`tex/preamble.tex` 中的 `\setmainjfont` 替换为本机可用的简体中文衬线字体。
 
 输出写入 `build/`。清理构建产物：
 
@@ -44,8 +57,7 @@ latexmk -C main.tex
 
 ```sh
 mkdir -p build
-xelatex -output-directory=build main.tex
-xelatex -output-directory=build main.tex
+lualatex -output-directory=build main.tex
 ```
 
 连续编译两次用于生成目录。未安装 LaTeX 时仍可编辑源文件，但提交前应至少确认 `main.tex` 中的所有 `\input` 路径存在。
